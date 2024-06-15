@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risultati della Ricerca</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fd954a; /* colore principale */
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .prodotto {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .prodotto:last-child {
+            border-bottom: none;
+        }
+
+        .prodotto h2 {
+            margin: 0;
+            color: #333;
+            font-size: 20px;
+        }
+
+        .prodotto p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table th,
+        .table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .table th {
+            background-color: #fd954a;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        .prezzo {
+            color: #fd954a;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Risultati della ricerca</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome Prodotto</th>
+                    <th>Prezzo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="prodotto : ${prodotti}" class="prodotto">
+                    <td>
+                        <h2 th:text="${prodotto.nome}"></h2>
+                        <p></p>
+                    </td>
+                    <td>
+                        <span class="prezzo" th:text="${prodotto.prezzo}"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
