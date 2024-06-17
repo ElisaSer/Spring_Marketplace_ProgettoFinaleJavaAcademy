@@ -105,7 +105,7 @@
                     <td th:text="${prodotto.prezzo}"></td>
                     <td th:text="${prodotto.categoria}"></td>
                     <td>
-                        <form th:action="@{/vendere/rimuovi}" method="post" style="display:inline;">
+                        <form th:action="@{/venditore}" method="post" style="display:inline;">
                             <input type="hidden" name="idProdotto" th:value="${prodotto.id}" />
                             <button type="submit" class="btn-remove-row">Rimuovi</button>
                         </form>
